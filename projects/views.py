@@ -5,9 +5,15 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from projects.models.profile_model import Profile
 from projects.models.project_model import Project
+from projects.models.certifying_model import CertifyingInstitution
+from projects.models.certificate_model import Certificate
 
 from projects.serializers.profile_serializer import ProfileSerializer
 from projects.serializers.project_serializer import ProjectSerializer
+from projects.serializers.certifying_serializer import (
+    CertifyingInstitutionSerializer,
+)
+from projects.serializers.certificate_serializer import CertificateSerializer
 
 
 # Create your views here.
@@ -36,3 +42,13 @@ class ProfileView(viewsets.ModelViewSet):
 class ProjectView(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+
+
+class CertifyingView(viewsets.ModelViewSet):
+    queryset = CertifyingInstitution.objects.all()
+    serializer_class = CertifyingInstitutionSerializer
+
+
+class CertificateView(viewsets.ModelViewSet):
+    queryset = Certificate.objects.all()
+    serializer_class = CertificateSerializer

@@ -11,7 +11,7 @@
   <p>{{ profile.linkedin }}</p>
   <p>{{ profile.bio }}</p>
 
-  <h2>Project</h2>
+  <h2>Projects</h2>
   <ul>
     {% for project in profile.projects.all %}
         <li>
@@ -23,5 +23,27 @@
         </li>
     {% endfor %}
 </ul>
+
+<h2>Certifications</h2>
+    <ul>
+        {% for certification in certificate.projects.all %}
+            <li>
+                {{ certification.name }}
+                {{ certificate.certifying_institution.name}}
+                {{ certificate.timestamp }}
+            </li>
+        {% endfor %}
+    </ul>
+
+
+    <h2>Certify Institution</h2>
+    <ul>
+        {% for institution in certifying_institution.projects.all %}
+            <li>
+                {{ institution.name }}
+                {{ institution.url }}
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
