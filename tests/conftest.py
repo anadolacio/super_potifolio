@@ -30,7 +30,7 @@ def user_seed(custom_django_db_setup):
 
 
 try:
-    from projects.models import Profile
+    from projects.models.profile_model import Profile
 
     @pytest.fixture(scope="session")
     def profile_seed(custom_django_db_setup):
@@ -49,7 +49,7 @@ except ImportError:
 
 
 try:
-    from projects.models import Project
+    from projects.models.project_model import Project
 
     @pytest.fixture(scope="session")
     def project_seed(custom_django_db_setup):
@@ -70,7 +70,8 @@ except ImportError:
 
 
 try:
-    from projects.models import CertifyingInstitution, Certificate, Profile
+    from projects.models.certifying_model import CertifyingInstitution
+    from projects.models.certificate_model import Certificate
 
     @pytest.fixture(scope="session")
     def certificate_and_institution_seed(custom_django_db_setup):
